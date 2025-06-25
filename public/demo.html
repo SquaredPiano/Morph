@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morph Demo - Test Your Extension</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    .demo-section {
+      background: #f8fafc;
+      padding: 24px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      border-left: 4px solid #2563eb;
+    }
+    .demo-section h3 {
+      margin-top: 0;
+      color: #1e293b;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    .example {
+      background: #eff6ff;
+      padding: 16px;
+      border-radius: 6px;
+      margin: 12px 0;
+      border-left: 3px solid #3b82f6;
+    }
+    .example h4 {
+      margin-top: 0;
+      color: #1e40af;
+    }
+    .tip {
+      background: #fef3c7;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 16px 0;
+      border-left: 3px solid #f59e0b;
+    }
+  </style>
+</head>
+<body>
+  <h1>🤖 Morph Extension Demo</h1>
+  <p>Test your Morph extension by typing questions in the fields below. Make sure the extension is loaded and configured with your OpenAI API key.</p>
+
+  <div class="demo-section">
+    <h3>Email Composition</h3>
+    <p>Try composing an email with a question:</p>
+    <textarea placeholder="Type your email here... Try starting with 'What is the status of...' or 'When will the project...'"></textarea>
+  </div>
+
+  <div class="demo-section">
+    <h3>Chat Message</h3>
+    <p>Simulate a chat conversation:</p>
+    <input type="text" placeholder="Type a message... Try 'How do I reset my password?' or 'Where is the nearest coffee shop?'">
+  </div>
+
+  <div class="demo-section">
+    <h3>Form Field</h3>
+    <p>Test with a simple form input:</p>
+    <input type="text" placeholder="Ask a question... Try 'Who is the CEO of...' or 'Why does this happen...'">
+  </div>
+
+  <div class="demo-section">
+    <h3>Content Editable</h3>
+    <p>Test with a contenteditable div:</p>
+    <div contenteditable="true" style="min-height: 100px; padding: 12px; border: 1px solid #d1d5db; border-radius: 6px; background: white;" placeholder="Click here and type a question..."></div>
+  </div>
+
+  <div class="example">
+    <h4>Example Questions to Try:</h4>
+    <ul>
+      <li><strong>What</strong> is the weather like today?</li>
+      <li><strong>How</strong> do I install Node.js?</li>
+      <li><strong>Where</strong> can I find good pizza?</li>
+      <li><strong>When</strong> is the next meeting?</li>
+      <li><strong>Why</strong> is the sky blue?</li>
+      <li><strong>Who</strong> invented the telephone?</li>
+    </ul>
+  </div>
+
+  <div class="tip">
+    <strong>💡 Tip:</strong> Make sure your Morph extension is enabled and you've configured your OpenAI API key in the extension settings. The extension should detect questions after you stop typing for about 1 second.
+  </div>
+
+  <div class="demo-section">
+    <h3>Troubleshooting</h3>
+    <p>If the extension isn't working:</p>
+    <ol>
+      <li>Check that the extension is loaded in Chrome (chrome://extensions/)</li>
+      <li>Verify your OpenAI API key is configured</li>
+      <li>Make sure the extension is enabled</li>
+      <li>Check the browser console for any error messages</li>
+      <li>Try refreshing this page</li>
+    </ol>
+  </div>
+
+  <script>
+    // Add some helpful logging
+    console.log('Morph Demo Page Loaded')
+    console.log('Try typing questions starting with who, what, where, when, why, or how')
+    
+    // Add placeholder behavior for contenteditable
+    const contentEditable = document.querySelector('[contenteditable]')
+    if (contentEditable) {
+      contentEditable.addEventListener('focus', function() {
+        if (!this.textContent) {
+          this.textContent = 'Click here and type a question...'
+        }
+      })
+      
+      contentEditable.addEventListener('blur', function() {
+        if (this.textContent === 'Click here and type a question...') {
+          this.textContent = ''
+        }
+      })
+    }
+  </script>
+</body>
+</html> 

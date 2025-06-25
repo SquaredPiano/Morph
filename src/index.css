@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900;
+  }
+}
+
+@layer components {
+  .morph-popup {
+    @apply fixed z-50 bg-white rounded-lg shadow-xl border border-gray-200 p-4 max-w-sm;
+  }
+  
+  .morph-suggestion {
+    @apply bg-blue-50 border border-blue-200 rounded-md p-3 mb-2;
+  }
+  
+  .morph-button {
+    @apply px-3 py-1.5 text-sm font-medium rounded-md transition-colors;
+  }
+  
+  .morph-button-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700;
+  }
+  
+  .morph-button-secondary {
+    @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
+  }
+} 

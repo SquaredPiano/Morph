@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Morph!</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .logo {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      color: #2563eb;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: #6b7280;
+      font-size: 18px;
+    }
+    .feature {
+      background: #f8fafc;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-left: 4px solid #2563eb;
+    }
+    .feature h3 {
+      margin-top: 0;
+      color: #1e293b;
+    }
+    .steps {
+      background: #eff6ff;
+      padding: 24px;
+      border-radius: 8px;
+      margin: 30px 0;
+    }
+    .steps h3 {
+      margin-top: 0;
+      color: #1e40af;
+    }
+    .step {
+      margin-bottom: 16px;
+      padding-left: 20px;
+      position: relative;
+    }
+    .step:before {
+      content: counter(step-counter);
+      counter-increment: step-counter;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: #2563eb;
+      color: white;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .steps {
+      counter-reset: step-counter;
+    }
+    .cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .cta button:hover {
+      background: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">🤖</div>
+    <h1>Welcome to Morph!</h1>
+    <p class="subtitle">Your AI-powered question assistant</p>
+  </div>
+
+  <div class="feature">
+    <h3>What is Morph?</h3>
+    <p>Morph automatically detects when you're about to ask a common question and uses AI to provide helpful answers before you hit send. Perfect for emails, messages, comments, and forms.</p>
+  </div>
+
+  <div class="feature">
+    <h3>How it works</h3>
+    <ul>
+      <li>Detects questions starting with "who", "what", "where", "when", "why", or "how"</li>
+      <li>Uses OpenAI GPT-4o to generate intelligent answers</li>
+      <li>Shows suggestions in a popup or auto-replaces your text</li>
+      <li>Works on any website with input fields</li>
+    </ul>
+  </div>
+
+  <div class="steps">
+    <h3>Getting Started</h3>
+    <div class="step">
+      <strong>Get an OpenAI API key</strong><br>
+      Visit <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform</a> to create your free API key
+    </div>
+    <div class="step">
+      <strong>Configure Morph</strong><br>
+      Click the Morph icon in your browser toolbar and enter your API key
+    </div>
+    <div class="step">
+      <strong>Start typing questions</strong><br>
+      Try typing "What is the weather like?" or "How do I reset my password?" in any input field
+    </div>
+  </div>
+
+  <div class="feature">
+    <h3>Privacy & Security</h3>
+    <p>Your API key is stored locally and never shared. Questions are sent to OpenAI's servers to generate answers, but we don't store or log any of your data.</p>
+  </div>
+
+  <div class="cta">
+    <button onclick="openSettings()">Open Settings</button>
+  </div>
+
+  <script>
+    function openSettings() {
+      chrome.runtime.sendMessage({ type: 'OPEN_POPUP' });
+      window.close();
+    }
+  </script>
+</body>
+</html> 
